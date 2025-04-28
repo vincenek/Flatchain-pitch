@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatChain - Investor Briefing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            color: white;
+        }
+
+        .section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .timeline {
+            border-left: 3px solid var(--primary);
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .milestone {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+        }
+
+        .milestone:before {
+            content: "✓";
+            position: absolute;
+            left: -1.7rem;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--dark);
+            color: white;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">FlatChain</h1>
+            <p style="font-size: 1.5rem; opacity: 0.95;">
+                Revolutionizing Fiat Transactions with AI-Powered Blockchain
+            </p>
+            <div style="margin-top: 3rem;">
+                <a href="https://vincenek.github.io/Flatchain-MPV/" target="_blank">
+                    <button>Live Prototype →</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Opportunity -->
+    <div class="container section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">$12T Market Opportunity</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🏦 Banking 4.0</h3>
+                <p>Replace legacy systems (SWIFT, ACH) with instant AI-validated transactions</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Cross-Border</h3>
+                <p>Capture 30% of $156B cross-border payment fees by 2026</p>
+            </div>
+            <div class="card">
+                <h3>🤖 AI Finance</h3>
+                <p>Lead the $50B AI-in-banking market with patent-pending validation tech</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Advantage -->
+    <div class="section" style="background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Technical Superiority</h2>
+            <div class="grid">
+                <div>
+                    <h3>⚡ Performance</h3>
+                    <ul style="margin-top: 1rem; list-style: none;">
+                        <li class="milestone">5,000+ TPS Capacity</li>
+                        <li class="milestone">0.1s Validation Time</li>
+                        <li class="milestone">99.999% Uptime</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🛡️ Compliance Edge</h3>
+                    <ul style="margin-top: 1rem; list-style: none;">
+                        <li class="milestone">Auto-KYC/AML Checks</li>
+                        <li class="milestone">GDPR/PCI-DSS Ready</li>
+                        <li class="milestone">Real-time Audit Trails</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="container section">
+        <h2 style="text-align: center; margin-bottom: 3rem;">5-Year Dominance Plan</h2>
+        <div class="timeline">
+            <div class="milestone">
+                <h3>2025: Core Platform</h3>
+                <p>Bank API integrations, US/EU compliance certification</p>
+            </div>
+            <div class="milestone">
+                <h3>2026: Global Expansion</h3>
+                <p>Multi-currency support, 100+ banking partners</p>
+            </div>
+            <div class="milestone">
+                <h3>2027: Quantum Leap</h3>
+                <p>Quantum AI validation prototype, 1M TPS capacity</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <div class="section" style="background: #f1f5f9;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Founding Team</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Kenechukwu Vincent</h3>
+                    <p>Founder & CEO</p>
+                    <ul style="margin-top: 1rem; color: #64748b;">
+                        <li>Blockchain Architect</li>
+                        <li>AI/ML Specialist</li>
+                        <li>kenechukwu130@gmail.com</li>
+                        <li>GitHub: vincenek</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">Shape the Future of Banking</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Seeking $1.5M Seed Round for Core Platform Development
+            </p>
+            <a href="mailto:kenechukwu130@gmail.com">
+                <button>Schedule Investor Briefing →</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 2rem; text-align: center; color: #64748b;">
+        <p>© 2024 FlatChain | Open Source Protocol</p>
+        <p style="margin-top: 1rem;">
+            GitHub: <a href="https://github.com/vincenek" style="color: var(--primary);">vincenek</a> |
+            Email: <a href="mailto:kenechukwu130@gmail.com" style="color: var(--primary);">kenechukwu130@gmail.com</a>
+        </p>
+    </footer>
+</body>
+</html>
