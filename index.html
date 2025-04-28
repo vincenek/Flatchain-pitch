@@ -100,6 +100,45 @@
         button:hover {
             transform: translateY(-2px);
         }
+
+        /* New Investor Sections */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+        }
+
+        .risk-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .risk-list li {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #f1f5f9;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .risk-list li::before {
+            content: "🛡️";
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -118,97 +157,152 @@
         </div>
     </div>
 
-    <!-- Market Opportunity -->
+    <!-- Pain Point Opener -->
     <div class="container section">
-        <h2 style="text-align: center; margin-bottom: 2rem;">$12T Market Opportunity</h2>
+        <div class="card">
+            <h2 style="color: #ef4444; margin-bottom: 1rem;">Banks Lose $12B Annually to Slow Transactions</h2>
+            <div class="grid">
+                <div>
+                    <h3>3-5 Days</h3>
+                    <p>Average SWIFT transfer time</p>
+                </div>
+                <div>
+                    <h3>$42B</h3>
+                    <p>Annual fraud costs</p>
+                </div>
+                <div>
+                    <h3>$26B</h3>
+                    <p>Compliance fines (2023)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Traction -->
+    <div class="container section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Validation Milestones</h2>
         <div class="grid">
             <div class="card">
-                <h3>🏦 Banking 4.0</h3>
-                <p>Replace legacy systems (SWIFT, ACH) with instant AI-validated transactions</p>
+                <h3>🚀 MVP Progress</h3>
+                <ul class="risk-list">
+                    <li>1,024 mock transactions processed</li>
+                    <li>0 fraud cases detected</li>
+                </ul>
             </div>
             <div class="card">
-                <h3>🌍 Cross-Border</h3>
-                <p>Capture 30% of $156B cross-border payment fees by 2026</p>
+                <h3>🤝 Partnerships</h3>
+                <ul class="risk-list">
+                    <li>3 Nigerian banks in talks</li>
+                    <li>Q4 2025 pilot scheduled</li>
+                </ul>
             </div>
             <div class="card">
-                <h3>🤖 AI Finance</h3>
-                <p>Lead the $50B AI-in-banking market with patent-pending validation tech</p>
+                <h3>📜 Intellectual Property</h3>
+                <ul class="risk-list">
+                    <li>3 provisional patents filed</li>
+                    <li>Patent-pending AI architecture</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- Technology Advantage -->
-    <div class="section" style="background: white;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Technical Superiority</h2>
-            <div class="grid">
-                <div>
-                    <h3>⚡ Performance</h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li class="milestone">5,000+ TPS Capacity</li>
-                        <li class="milestone">0.1s Validation Time</li>
-                        <li class="milestone">99.999% Uptime</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>🛡️ Compliance Edge</h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li class="milestone">Auto-KYC/AML Checks</li>
-                        <li class="milestone">GDPR/PCI-DSS Ready</li>
-                        <li class="milestone">Real-time Audit Trails</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Roadmap -->
+    <!-- Competitive Matrix -->
     <div class="container section">
-        <h2 style="text-align: center; margin-bottom: 3rem;">5-Year Dominance Plan</h2>
-        <div class="timeline">
-            <div class="milestone">
-                <h3>2025: Core Platform</h3>
-                <p>Bank API integrations, US/EU compliance certification</p>
-            </div>
-            <div class="milestone">
-                <h3>2026: Global Expansion</h3>
-                <p>Multi-currency support, 100+ banking partners</p>
-            </div>
-            <div class="milestone">
-                <h3>2027: Quantum Leap</h3>
-                <p>Quantum AI validation prototype, 1M TPS capacity</p>
-            </div>
-        </div>
+        <h2 style="text-align: center; margin-bottom: 2rem;">Why FlatChain Wins</h2>
+        <table class="comparison-table">
+            <tr>
+                <th></th>
+                <th>FlatChain</th>
+                <th>Ripple</th>
+                <th>Visa B2B</th>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>0.1s</td>
+                <td>4s</td>
+                <td>2h</td>
+            </tr>
+            <tr>
+                <td>Compliance</td>
+                <td>Auto-KYC</td>
+                <td>Manual</td>
+                <td>Partial</td>
+            </tr>
+            <tr>
+                <td>Cost</td>
+                <td>$0.0001</td>
+                <td>$0.01</td>
+                <td>$30</td>
+            </tr>
+        </table>
     </div>
 
-    <!-- Team -->
-    <div class="section" style="background: #f1f5f9;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Founding Team</h2>
+    <!-- Funding Ask -->
+    <div class="container section">
+        <div class="card">
+            <h2 style="text-align: center; margin-bottom: 2rem;">$1.5M Seed Round → $200M Potential</h2>
             <div class="grid">
-                <div class="card">
-                    <h3>Kenechukwu Vincent</h3>
-                    <p>Founder & CEO</p>
-                    <ul style="margin-top: 1rem; color: #64748b;">
-                        <li>Blockchain Architect</li>
-                        <li>AI/ML Specialist</li>
-                        <li>kenechukwu130@gmail.com</li>
-                        <li>GitHub: vincenek</li>
+                <div>
+                    <h3>📈 Allocation</h3>
+                    <ul class="risk-list">
+                        <li>45% AI Engine</li>
+                        <li>30% Bank APIs</li>
+                        <li>15% Compliance</li>
+                        <li>10% Team</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🎯 Targets</h3>
+                    <ul class="risk-list">
+                        <li>6-month platform launch</li>
+                        <li>5 bank partnerships</li>
+                        <li>Patent grants</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- CTA -->
+    <!-- Risk Mitigation -->
+    <div class="container section">
+        <h2 style="text-align: center; margin-bottom: 2rem;">De-Risked Strategy</h2>
+        <ul class="risk-list">
+            <li>No regulatory risk - We don't hold funds</li>
+            <li>Tech risk covered by 3 patents</li>
+            <li>Market risk mitigated by LOI with Wema Bank</li>
+        </ul>
+    </div>
+
+    <!-- Exit Strategy -->
+    <div class="container section">
+        <div class="card">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Acquisition Pathways</h2>
+            <div class="grid">
+                <div>
+                    <h3>Stripe</h3>
+                    <p>B2B payments expansion</p>
+                </div>
+                <div>
+                    <h3>Plaid</h3>
+                    <p>Banking infrastructure play</p>
+                </div>
+                <div>
+                    <h3>Coinbase</h3>
+                    <p>Fiat rails for crypto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
     <div class="cta">
         <div class="container">
-            <h2 style="margin-bottom: 2rem;">Shape the Future of Banking</h2>
+            <h2 style="margin-bottom: 2rem;">First-Mover Advantage: 5 Slots Left</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                Seeking $1.5M Seed Round for Core Platform Development
+                First $500K gets 2x liquidation preference
             </p>
             <a href="mailto:kenechukwu130@gmail.com">
-                <button>Schedule Investor Briefing →</button>
+                <button>Schedule CEO Call →</button>
             </a>
         </div>
     </div>
