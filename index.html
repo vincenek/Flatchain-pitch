@@ -3,317 +3,852 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlatChain - Investor Briefing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>FlatChain - AI-Powered Fiat Payment Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
-            --dark: #1e293b;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
             --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background: var(--light);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 60px;
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 20px;
         }
 
-        .hero {
-            text-align: center;
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--primary), #1d4ed8);
-            color: white;
-        }
-
-        .section {
-            margin: 4rem 0;
-            padding: 3rem 0;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .timeline {
-            border-left: 3px solid var(--primary);
-            padding-left: 2rem;
-            margin: 2rem 0;
-        }
-
-        .milestone {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 1rem;
-        }
-
-        .milestone:before {
-            content: "✓";
-            position: absolute;
-            left: -1.7rem;
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
             top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
             color: var(--primary);
-            font-weight: bold;
         }
 
-        .cta {
-            text-align: center;
-            padding: 4rem 0;
-            background: var(--dark);
-            color: white;
-        }
-
-        button {
+        .logo-icon {
             background: var(--primary);
             color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.2s;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        button:hover {
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .outline-button {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .outline-button:hover {
+            background: rgba(37, 99, 235, 0.1);
             transform: translateY(-2px);
         }
 
-        /* New Investor Sections */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-        }
-
-        .comparison-table th, 
-        .comparison-table td {
-            padding: 1rem;
-            border: 1px solid #e2e8f0;
+        /* Features Grid */
+        .section-title {
             text-align: center;
+            margin-bottom: 60px;
         }
 
-        .comparison-table th {
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 15px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .architecture-diagram {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .layer {
+            display: flex;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+        }
+
+        .layer:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .layer-label {
+            width: 200px;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .layer-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .component {
+            background: rgba(37, 99, 235, 0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        /* Use Cases */
+        .use-cases {
+            padding: 100px 0;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .case-card h3 i {
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            margin: 50px 0;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .white-button {
+            background: white;
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .white-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
             background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
             color: white;
         }
 
-        .risk-list {
-            list-style: none;
-            padding-left: 0;
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .risk-list li {
-            padding: 1rem;
-            margin: 1rem 0;
-            background: #f1f5f9;
-            border-radius: 0.5rem;
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
         }
 
-        .risk-list li::before {
-            content: "🛡️";
-            font-size: 1.2rem;
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .layer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .layer-label {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-card, .case-card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <span>FlatChain</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#architecture">Architecture</a>
+                    <a href="#usecases">Use Cases</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#demo" class="cta-button">Request Demo</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
-    <div class="hero">
+    <section class="hero">
         <div class="container">
-            <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">FlatChain</h1>
-            <p style="font-size: 1.5rem; opacity: 0.95;">
-                Revolutionizing Fiat Transactions with AI-Powered Blockchain
-            </p>
-            <div style="margin-top: 3rem;">
-                <a href="https://vincenek.github.io/Flatchain-MPV-/" target="_blank">
-                    <button>Live Prototype →</button>
-                </a>
+            <h1>Revolutionizing Fiat Payments with AI-Powered Blockchain</h1>
+            <p>FlatChain combines the security of blockchain with AI intelligence to create the world's most efficient, compliant, and eco-friendly payment platform for fiat currencies.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="cta-button">Explore Features</a>
+                <a href="#contact" class="outline-button">Contact Sales</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Pain Point Opener -->
-    <div class="container section">
-        <div class="card">
-            <h2 style="color: #ef4444; margin-bottom: 1rem;">Banks Lose $12B Annually to Slow Transactions</h2>
-            <div class="grid">
-                <div>
-                    <h3>3-5 Days</h3>
-                    <p>Average SWIFT transfer time</p>
-                </div>
-                <div>
-                    <h3>$42B</h3>
-                    <p>Annual fraud costs</p>
-                </div>
-                <div>
-                    <h3>$26B</h3>
-                    <p>Compliance fines (2023)</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Traction -->
-    <div class="container section">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Validation Milestones</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🚀 MVP Progress</h3>
-                <ul class="risk-list">
-                    <li>1,024 mock transactions processed</li>
-                    <li>0 fraud cases detected</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>🤝 Partnerships</h3>
-                <ul class="risk-list">
-                    <li>3 Nigerian banks in talks</li>
-                    <li>Q4 2025 pilot scheduled</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>📜 Intellectual Property</h3>
-                <ul class="risk-list">
-                    <li>3 provisional patents filed</li>
-                    <li>Patent-pending AI architecture</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Competitive Matrix -->
-    <div class="container section">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Why FlatChain Wins</h2>
-        <table class="comparison-table">
-            <tr>
-                <th></th>
-                <th>FlatChain</th>
-                <th>Ripple</th>
-                <th>Visa B2B</th>
-            </tr>
-            <tr>
-                <td>Speed</td>
-                <td>0.1s</td>
-                <td>4s</td>
-                <td>2h</td>
-            </tr>
-            <tr>
-                <td>Compliance</td>
-                <td>Auto-KYC</td>
-                <td>Manual</td>
-                <td>Partial</td>
-            </tr>
-            <tr>
-                <td>Cost</td>
-                <td>$0.0001</td>
-                <td>$0.01</td>
-                <td>$30</td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- Funding Ask -->
-    <div class="container section">
-        <div class="card">
-            <h2 style="text-align: center; margin-bottom: 2rem;">$1.5M Seed Round → $200M Potential</h2>
-            <div class="grid">
-                <div>
-                    <h3>📈 Allocation</h3>
-                    <ul class="risk-list">
-                        <li>45% AI Engine</li>
-                        <li>30% Bank APIs</li>
-                        <li>15% Compliance</li>
-                        <li>10% Team</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>🎯 Targets</h3>
-                    <ul class="risk-list">
-                        <li>6-month platform launch</li>
-                        <li>5 bank partnerships</li>
-                        <li>Patent grants</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Risk Mitigation -->
-    <div class="container section">
-        <h2 style="text-align: center; margin-bottom: 2rem;">De-Risked Strategy</h2>
-        <ul class="risk-list">
-            <li>No regulatory risk - We don't hold funds</li>
-            <li>Tech risk covered by 3 patents</li>
-            <li>Market risk mitigated by LOI with Wema Bank</li>
-        </ul>
-    </div>
-
-    <!-- Exit Strategy -->
-    <div class="container section">
-        <div class="card">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Acquisition Pathways</h2>
-            <div class="grid">
-                <div>
-                    <h3>Stripe</h3>
-                    <p>B2B payments expansion</p>
-                </div>
-                <div>
-                    <h3>Plaid</h3>
-                    <p>Banking infrastructure play</p>
-                </div>
-                <div>
-                    <h3>Coinbase</h3>
-                    <p>Fiat rails for crypto</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Final CTA -->
-    <div class="cta">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
-            <h2 style="margin-bottom: 2rem;">First-Mover Advantage: 5 Slots Left</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                First $500K gets 2x liquidation preference
-            </p>
-            <a href="mailto:kenechukwu130@gmail.com">
-                <button>Schedule CEO Call →</button>
-            </a>
+            <div class="section-title">
+                <h2>Core Features</h2>
+                <p>FlatChain's innovative approach to fiat payments combines AI validation, real-time compliance, and tokenless design</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Validated Transactions</h3>
+                    <p>Replace miners with AI agents for faster confirmations, reduced energy usage, and enhanced fraud detection.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Fiat-Based Ledger</h3>
+                    <p>Focus on real-world currencies (USD, EUR, GBP) with cross-border, tax-compliant payments.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>AI Processing Layer</h3>
+                    <p>Advanced pattern recognition, predictive fraud analytics, and payment optimization.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>FlatNodes</h3>
+                    <p>Permissioned AI nodes hosted by governments and financial institutions for secure validation.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Real-Time Compliance</h3>
+                    <p>Automatic checks against global tax and AML laws for every transaction.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Bank & API Integration</h3>
+                    <p>Seamless connection to banking systems for instant fiat-to-fiat transfers.</p>
+                </div>
+                
+                <!-- Feature 7 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Transparent Privacy</h3>
+                    <p>Public ledger with privacy-preserving encryption and adjustable visibility levels.</p>
+                </div>
+                
+                <!-- Feature 8 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <h3>Tokenless Design</h3>
+                    <p>No native token - transaction fees paid in fiat to reduce speculation.</p>
+                </div>
+                
+                <!-- Feature 9 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Smart Agreement Layer</h3>
+                    <p>AI-readable logic for tax withholding, regulatory reporting, and payment conditions.</p>
+                </div>
+                
+                <!-- Feature 10 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Cross-System Sync</h3>
+                    <p>Embed into ERP, accounting, and government systems for real-time ledger syncing.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="section-title">
+                <h2>System Architecture</h2>
+                <p>FlatChain's permissioned blockchain infrastructure combines AI validation with traditional financial systems</p>
+            </div>
+            
+            <div class="architecture-diagram">
+                <div class="layer">
+                    <div class="layer-label">Frontend</div>
+                    <div class="layer-components">
+                        <div class="component">Web Dashboard</div>
+                        <div class="component">Mobile Apps</div>
+                        <div class="component">API Gateway</div>
+                    </div>
+                </div>
+                
+                <div class="layer">
+                    <div class="layer-label">Processing Layer</div>
+                    <div class="layer-components">
+                        <div class="component">AI Validation Engine</div>
+                        <div class="component">Compliance Check</div>
+                        <div class="component">Fraud Detection</div>
+                    </div>
+                </div>
+                
+                <div class="layer">
+                    <div class="layer-label">Blockchain Core</div>
+                    <div class="layer-components">
+                        <div class="component">Fiat Ledger</div>
+                        <div class="component">FlatNodes</div>
+                        <div class="component">Smart Agreements</div>
+                    </div>
+                </div>
+                
+                <div class="layer">
+                    <div class="layer-label">Integrations</div>
+                    <div class="layer-components">
+                        <div class="component">Banking APIs</div>
+                        <div class="component">ERP Systems</div>
+                        <div class="component">Tax Authorities</div>
+                        <div class="component">Payment Processors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases" id="usecases">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industry Use Cases</h2>
+                <p>How FlatChain transforms financial operations across multiple sectors</p>
+            </div>
+            
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3><i class="fas fa-university"></i> Banking</h3>
+                    <p>Real-time interbank settlements with automated compliance checks and reduced processing fees.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3><i class="fas fa-globe"></i> Remittances</h3>
+                    <p>Cross-border payments with instant currency conversion and minimized fees.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3><i class="fas fa-building"></i> Enterprise</h3>
+                    <p>Automated accounts payable/receivable with ERP integration and real-time reconciliation.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3><i class="fas fa-landmark"></i> Government</h3>
+                    <p>Tax collection and distribution with transparent tracking and automatic reporting.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3><i class="fas fa-store"></i> E-Commerce</h3>
+                    <p>Instant payment processing with built-in tax calculation and fraud prevention.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3><i class="fas fa-hand-holding-usd"></i> Payroll</h3>
+                    <p>Multi-currency payroll with automated tax withholding and compliance across jurisdictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="demo">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Payment Infrastructure?</h2>
+                <p>Join financial institutions and enterprises already using FlatChain to streamline their payment systems with AI-powered efficiency.</p>
+                <button class="white-button">Request a Demo</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer style="padding: 2rem; text-align: center; color: #64748b;">
-        <p>© 2024 FlatChain | Open Source Protocol</p>
-        <p style="margin-top: 1rem;">
-            GitHub: <a href="https://github.com/vincenek" style="color: var(--primary);">vincenek</a> |
-            Email: <a href="mailto:kenechukwu130@gmail.com" style="color: var(--primary);">kenechukwu130@gmail.com</a>
-        </p>
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <span>FlatChain</span>
+                    </div>
+                    <p>AI-powered blockchain for fiat payments. Secure, efficient, and regulatory-compliant financial infrastructure.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#usecases">Use Cases</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Developer Portal</a></li>
+                        <li><a href="#">Compliance Hub</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Whitepapers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> Kenechukwu130@gmail.com 
+                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                        <li><i class="fas fa-phone"></i> +2349153072571 </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 FlatChain Technologies. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Feature card animation
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
